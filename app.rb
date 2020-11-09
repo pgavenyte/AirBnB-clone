@@ -1,6 +1,6 @@
 require_relative './lib/database_connection'
 require 'sinatra/base'
-require 'Sinatra/flash'
+require 'sinatra/flash'
 require_relative './lib/setup_database'
 
 class MakersBnb < Sinatra::Base
