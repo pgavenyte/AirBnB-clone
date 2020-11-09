@@ -1,5 +1,5 @@
 require 'pg'
-require 'database_connection'
+require_relative './database_connection'
 
 if ENV['RACK_ENV'] == 'test'
   DatabaseConnection .setup('makers_bnb_test')

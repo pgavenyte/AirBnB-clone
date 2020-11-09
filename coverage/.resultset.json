@@ -1,0 +1,96 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/app.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/krzysztofkasprzak/Projects/airBnB/lib/database_connection.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/krzysztofkasprzak/Projects/airBnB/lib/setup_database.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          0,
+          null
+        ]
+      },
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/database_connection_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          4,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/test_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1604947081
+  }
+}

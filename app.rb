@@ -1,8 +1,11 @@
 require_relative './lib/database_connection'
-require 'Sinatra/base'
+require 'sinatra/base'
+require 'Sinatra/flash'
 require_relative './lib/setup_database'
 
 class MakersBnb < Sinatra::Base
+  enable :sessions, :method_override
+  register Sinatra::Flash
 
   get '/' do
     "Hello World."
