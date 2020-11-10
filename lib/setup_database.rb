@@ -2,7 +2,7 @@ require 'pg'
 require_relative './database_connection'
 
 if ENV['RACK_ENV'] == 'test'
-  DatabaseConnection .setup('makers_bnb_test')
+  DatabaseConnection.setup('makers_bnb_test')
 else
-  DatabaseConnection .setup('makers_bnb')
+  DatabaseConnection.setup('makers_bnb')
 end
