@@ -34,4 +34,14 @@ describe User do
     end
   end
 
+  describe "#validate" do
+
+    it "returns true if correct password given" do
+      expect(User.validate("password", "password")).to eq true
+    end
+    it "returns false if incorrect password given" do
+      expect(User.validate("password", "password1")).to eq false
+    end
+  end
+
 end

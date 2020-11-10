@@ -27,4 +27,10 @@ class User
     User.new(result[0]['id'], result[0]['email'])
   end
 
+  #validates if the provided string/password is the same
+  def self.validate(password1, password2)
+    password1 == password2
+  end
+
+
 end

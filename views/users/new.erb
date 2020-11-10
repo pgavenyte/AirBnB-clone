@@ -1,0 +1,14 @@
+<form action='/users' method='post'>
+    <input type="text" name="email" required="required" placeholder="email address"/>
+    <input type="password" name="password" required="required" placeholder="password"/>
+     <input type="password" placeholder="Confirm Password" name="confirm_pass" required>
+     <input type="date" name="day" required="required" max="<%= "#{DateTime.new(DateTime.now.year - 18, DateTime.now.month, DateTime.now.day).strftime("%Y-%m-%d")}" %>">
+    <input type="submit" value="Submit"/>
+</form>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>
