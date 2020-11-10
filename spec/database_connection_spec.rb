@@ -1,6 +1,6 @@
 require_relative '../lib/database_connection'
 
-describe DatabaseConnection  do
+describe DatabaseConnection do
   subject { described_class }
   describe "#setup" do
     it "sets up a connection to a database" do
