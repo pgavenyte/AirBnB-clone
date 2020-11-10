@@ -44,7 +44,7 @@ class MakersBnb < Sinatra::Base
    erb(:"sessions/destroy")
   end
 
-  delete '/sessions/destroyed' do
+  delete '/sessions' do
     flash[:notice] = "You are logged out now"
     session.delete(:user_id)
     redirect '/sessions/new'
