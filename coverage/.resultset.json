@@ -18,9 +18,13 @@
           null,
           null,
           1,
-          0,
-          0,
+          3,
           null,
+          null,
+          1,
+          2,
+          1,
+          1,
           null,
           1,
           null,
@@ -40,7 +44,7 @@
           null,
           null,
           1,
-          10,
+          11,
           null,
           null,
           1,
@@ -71,13 +75,13 @@
           1,
           null,
           1,
-          7,
-          7,
+          8,
+          8,
           null,
           null,
           1,
-          4,
-          4,
+          5,
+          5,
           null,
           null,
           1,
@@ -95,7 +99,7 @@
           null,
           null,
           1,
-          2,
+          4,
           null,
           null,
           null,
@@ -136,6 +140,32 @@
           1,
           1,
           1,
+          null,
+          null
+        ]
+      },
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/user_sign_up_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
           null,
           null
         ]
@@ -192,6 +222,6 @@
         ]
       }
     },
-    "timestamp": 1605003145
+    "timestamp": 1605008205
   }
 }

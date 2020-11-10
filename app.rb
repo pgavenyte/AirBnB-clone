@@ -13,12 +13,16 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/users/new' do
-    flash[:notice] = "Confirm your password." if  User.validate(params[:password], params[:confirm_pass]) == false
     erb(:"users/new")
   end
 
   post '/users' do
-    
+    if  User.validate(params[:password], params[:confirm_pass]) == false
+      flash[:notice] = "Confirm your password."
+      redirect '/users/new'
+    else
+      User.add(params[:email], params[:password])
+    end
   end
 
 end
