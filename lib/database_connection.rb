@@ -1,6 +1,6 @@
 require 'pg'
 
-class DatabaseConnection 
+class DatabaseConnection
 
   def self.setup(dbname)
     @connection = PG.connect(:dbname => dbname)

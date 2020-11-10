@@ -1,13 +1,14 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/krzysztofkasprzak/Projects/airBnB/app.rb": {
+      "/Users/paula/Projects/Makers_AirBnB_team5/app.rb": {
         "lines": [
           1,
           1,
           1,
           1,
           1,
+          1,
           null,
           1,
           1,
@@ -26,10 +27,36 @@
           null,
           null,
           null,
+          1,
+          3,
+          3,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
           null
         ]
       },
-      "/Users/krzysztofkasprzak/Projects/airBnB/lib/database_connection.rb": {
+      "/Users/paula/Projects/Makers_AirBnB_team5/lib/database_connection.rb": {
         "lines": [
           1,
           null,
@@ -40,7 +67,7 @@
           null,
           null,
           1,
-          10,
+          25,
           null,
           null,
           1,
@@ -50,7 +77,7 @@
           null
         ]
       },
-      "/Users/krzysztofkasprzak/Projects/airBnB/lib/setup_database.rb": {
+      "/Users/paula/Projects/Makers_AirBnB_team5/lib/setup_database.rb": {
         "lines": [
           1,
           1,
@@ -62,7 +89,7 @@
           null
         ]
       },
-      "/Users/krzysztofkasprzak/Projects/airBnB/lib/user.rb": {
+      "/Users/paula/Projects/Makers_AirBnB_team5/lib/user.rb": {
         "lines": [
           1,
           1,
@@ -102,7 +129,52 @@
           null
         ]
       },
-      "/Users/krzysztofkasprzak/Projects/airBnB/spec/database_connection_spec.rb": {
+      "/Users/paula/Projects/Makers_AirBnB_team5/lib/listings.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          15,
+          15,
+          15,
+          15,
+          15,
+          15,
+          null,
+          null,
+          1,
+          5,
+          5,
+          6,
+          null,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          8,
+          8,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/paula/Projects/Makers_AirBnB_team5/spec/database_connection_spec.rb": {
         "lines": [
           1,
           null,
@@ -130,7 +202,27 @@
           null
         ]
       },
-      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/test_spec.rb": {
+      "/Users/paula/Projects/Makers_AirBnB_team5/spec/features/add_listing_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/paula/Projects/Makers_AirBnB_team5/spec/features/test_spec.rb": {
         "lines": [
           1,
           1,
@@ -140,7 +232,86 @@
           null
         ]
       },
-      "/Users/krzysztofkasprzak/Projects/airBnB/spec/user_spec.rb": {
+      "/Users/paula/Projects/Makers_AirBnB_team5/spec/features/view_listings_spec.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/paula/Projects/Makers_AirBnB_team5/spec/listings_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/paula/Projects/Makers_AirBnB_team5/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -192,6 +363,6 @@
         ]
       }
     },
-    "timestamp": 1605003145
+    "timestamp": 1605028050
   }
 }
