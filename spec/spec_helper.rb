@@ -34,8 +34,9 @@ Capybara.app = MakersBnb
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.before(:each) do
-    connection =  PG.connect :dbname => 'makers_bnb_test'
-    connection.exec("TRUNCATE people, listing;")
+    setup_test_database
+    connection
+    add_row_to_test_database
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
