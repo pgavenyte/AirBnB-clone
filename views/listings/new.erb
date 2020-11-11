@@ -1,11 +1,18 @@
 List a  space
 <br>
 <form action="/listings/new" method="post">
-  Name <input type='text' name='name'>
-  Location <input type='text' name='location'>
-  Description<input type='text' name='description'>
-  Price <input type='integer' name='price'>
-  Available From <input type='text' name='available_from'>
-  Available To <input type='text' name='available_to'>
+  Name <input type='text' name='name' required />
+  Location <input type='text' name='location' required />
+  Description<input type='text' name='description' required />
+  Price <input type='integer' name='price' required />
+  Available From <input type='date' name='available_from'  min="<%= "#{DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day).strftime("%Y-%m-%d")}" %>" required />
+  Available To <input type='date' name='available_to' min="<%= "#{DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1).strftime("%Y-%m-%d")}" %>" required />
   <input type='submit' value='Add'>
 </form>
+
+<% flash.keys.each do |type| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <%= flash[type] %>
+    <a href="#" class="close">&times;</a>
+  </div>
+<% end %>

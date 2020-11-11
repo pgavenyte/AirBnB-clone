@@ -25,6 +25,7 @@ class MakersBnb < Sinatra::Base
       redirect '/users/new'
     else
       session[:user_id] = user.id
+      redirect '/listings'
     end
   end
 
@@ -39,6 +40,7 @@ class MakersBnb < Sinatra::Base
       redirect '/sessions/new'
     else
       session[:user_id] = user.id
+      redirect '/listings'
     end
   end
 
@@ -58,10 +60,14 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/listings/filter' do
-    @from = params[:filter_from]
-    @to = params[:filter_to]
-    @filter_listings = Listings.filter(@from, @to)
-    erb(:"listings/filter")
+    if params[:filter_from] > params[:filter_to]
+      flash[:notice] = 'Choose appropriate filter dates'
+      redirect '/listings'
+    else
+      @filter_listings = Listings.filter(params[:filter_from], params[:filter_to])
+      erb(:"listings/filter")
+    end
+
   end
 
   get '/listings/new' do
@@ -69,8 +75,16 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/listings/new' do
-    Listings.add(name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to], location: params[:location])
-    redirect '/listings'
+    if params[:available_from] > params[:available_to]
+      flash[:notice] = 'Choose appropriate availability dates'
+      redirect '/listings/new'
+    elsif session[:user_id] == nil
+      flash[:notice] = 'Please login to add listing'
+      redirect '/users/new'
+    else
+      Listings.add(people_id: session[:user_id], name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to], location: params[:location])
+      redirect '/listings'
+    end
   end
 
   run! if app_file == $0

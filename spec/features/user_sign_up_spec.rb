@@ -6,7 +6,7 @@ feature 'sing up to the websit' do
     fill_in('confirm_pass', with: 'password')
     fill_in "day", with: "1999-12-12"
     click_button('Submit')
-    expect(current_path).to eq '/users'
+    expect(current_path).to eq '/listings'
   end
 
   scenario 'user unsuccesuflly signs up ' do
