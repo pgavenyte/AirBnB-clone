@@ -4,6 +4,7 @@ require 'rspec'
 require 'simplecov'
 require 'simplecov-console'
 
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
@@ -34,8 +35,11 @@ Capybara.app = MakersBnb
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.before(:each) do
-    connection =  PG.connect :dbname => 'makers_bnb_test'
-    connection.exec("TRUNCATE people, listing;")
+
+  
+    connection
+    setup_test_database
+    add_row_to_test_database
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

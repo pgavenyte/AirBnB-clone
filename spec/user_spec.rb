@@ -28,7 +28,7 @@ describe User do
     it "returns nil if incorrect email given" do
       expect(User.authenticate("fake_email", "password")).to eq nil
     end
-    it "returns nil if incorrectpassword to existing email given" do
+    it "returns nil if incorrect password to existing email given" do
       user = User.add("example@email", "password")
       expect(User.authenticate("example@email", "wrong_password")).to eq nil
     end
