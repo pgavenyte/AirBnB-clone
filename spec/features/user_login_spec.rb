@@ -5,7 +5,7 @@ feature 'login in  to the websit' do
     fill_in('email', with: 'examplar@email')
     fill_in('password', with: 'pass')
     click_button('Login')
-    expect(current_path).to eq '/sessions'
+    expect(current_path).to eq '/listings'
   end
 
   scenario "unsuccesuflly login to an existing account with faulty username" do

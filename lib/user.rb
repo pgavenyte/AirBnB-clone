@@ -14,9 +14,9 @@ class User
     User.new(result[0]['id'], result[0]['email'])
   end
 
-  def self.find(id)
-    return nil unless id
-    result = DatabaseConnection.query("SELECT email FROM people WHERE id='#{id}';")
+  def self.find(email)
+    return nil unless email
+    result = DatabaseConnection.query("SELECT email FROM people WHERE email='#{email}';")
     User.new(result[0]['id'], result[0]['email'])
   end
 

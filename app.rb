@@ -39,6 +39,7 @@ class MakersBnb < Sinatra::Base
       redirect '/sessions/new'
     else
       session[:user_id] = user.id
+      redirect '/listings'
     end
   end
 
@@ -69,7 +70,7 @@ class MakersBnb < Sinatra::Base
   end
 
   post '/listings/new' do
-    Listings.add(name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to], location: params[:location])
+    Listings.add(people_id: session[:user_id], name: params[:name], description: params[:description], price: params[:price], available_from: params[:available_from], available_to: params[:available_to], location: params[:location])
     redirect '/listings'
   end
 

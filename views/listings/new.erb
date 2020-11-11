@@ -1,11 +1,11 @@
 List a  space
 <br>
 <form action="/listings/new" method="post">
-  Name <input type='text' name='name'>
-  Location <input type='text' name='location'>
-  Description<input type='text' name='description'>
-  Price <input type='integer' name='price'>
-  Available From <input type='text' name='available_from'>
-  Available To <input type='text' name='available_to'>
+  Name <input type='text' name='name' required />
+  Location <input type='text' name='location' required />
+  Description<input type='text' name='description' required />
+  Price <input type='integer' name='price' required />
+  Available From <input type='date' name='available_from' required />
+  Available To <input type='date' name='available_to' required />
   <input type='submit' value='Add'>
 </form>

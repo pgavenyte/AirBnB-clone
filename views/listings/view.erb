@@ -4,6 +4,10 @@
   <input type="submit" value="Filter">
 </form>
 
+<form action='/listings/new' method="get">
+  <input type="submit" value="Add new listing">
+</form>
+
 <% @listings.each do |listing| %>
   <ul>
     <li> <%= listing.name %>, <%= listing.description %>, <%= listing.price %>, <%= listing.available_from %>, <%= listing.available_to %>, <%= listing.location %> </li>
