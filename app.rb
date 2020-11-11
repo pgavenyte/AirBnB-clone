@@ -31,13 +31,19 @@ class MakersBnb < Sinatra::Base
     erb :"listings/view"
   end
 
-  post '/listings' do
+  post '/listings/filter' do
     @from = params[:filter_from]
     @to = params[:filter_to]
-    redirect 'listings/filter'
+    p params
+    @filter_listings = Listings.filter(@from, @to)
+    erb(:"listings/filter")
+    #redirect '/listings/filter'
   end
 
   get '/listings/filter' do
+    #@from = params[:filter_from]
+    #@to = params[:filter_to]
+    p params
     @filter_listings = Listings.filter(@from, @to)
     erb(:"listings/filter")
   end

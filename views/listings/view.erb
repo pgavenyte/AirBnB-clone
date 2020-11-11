@@ -1,12 +1,12 @@
-<form action='/listings' method="post">
-  <input type="text" name="filter_from">
-  <input type="text" name="filter_to">
+<form action='/listings/filter' method="post">
+  <input type="date" name="filter_from">
+  <input type="date" name="filter_to">
   <input type="submit" value="Filter">
 </form>
 
 <% @listings.each do |listing| %>
   <ul>
     <li> <%= listing.name %>, <%= listing.description %>, <%= listing.price %>, <%= listing.available_from %>, <%= listing.available_to %>, <%= listing.location %> </li>
-    
+
   </ul>
 <% end %>

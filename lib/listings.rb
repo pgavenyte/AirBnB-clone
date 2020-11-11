@@ -7,7 +7,7 @@ class Listings
   def initialize(name:, description:, price:, available_from:, available_to:, location:)
     @name = name
     @description = description
-    @price = price 
+    @price = price
     @available_from = available_from
     @available_to = available_to
     @location = location
@@ -21,9 +21,9 @@ class Listings
   end
 
   def self.filter(filter_from, filter_to)
-    from = filter_from.to_s
-    to = filter_to.to_s
-    result = DatabaseConnection.query("SELECT * FROM listing WHERE av_from <= '#{from}' AND av_to >= '#{to}';")
+    from = Date.parse(filter_from)
+    to = Date.parse(filter_to)
+    result = DatabaseConnection.query("SELECT * FROM listing WHERE av_from < '#{from}' AND av_to > '#{to}';")
     result.map do |listing|
       Listings.new(name: listing['name'], description: listing['description'], price: listing['price'], available_from: listing['av_from'], available_to: listing['av_to'], location: listing['location'])
     end
