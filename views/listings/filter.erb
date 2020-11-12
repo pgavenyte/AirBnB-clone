@@ -28,7 +28,15 @@
 
 <% @filter_listings.each do |listing| %>
   <ul>
+<<<<<<< HEAD
+    <li>
+    <a href="http://localhost:9292/<%= listing.id %>">
+     <%= listing.name %>, <%= listing.description %>, <%= listing.price %>, <%= listing.available_from %>, <%= listing.available_to %>, <%= listing.location %> </a>
+     </li>
+    
+=======
     <li> <%= listing.name %>, <%= listing.description %>, <%= listing.price %>, <%= listing.available_from %>, <%= listing.available_to %>, <%= listing.location %> </li>
 
+>>>>>>> 0b541dd8f4a976ab4c4a8d537608ed48f3d70ea3
   </ul>
 <% end %>

@@ -16,5 +16,5 @@ def add_row_to_test_database
 end
 
 def setup_test_database
-  DatabaseConnection.query("TRUNCATE people CASCADE;")
+  DatabaseConnection.query("TRUNCATE people, listing;")
 end

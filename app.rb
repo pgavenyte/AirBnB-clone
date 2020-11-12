@@ -91,5 +91,10 @@ class MakersBnb < Sinatra::Base
     end
   end
 
+  get '/:id' do
+    @clicked_listing = Listings.click(id: params[:id])
+    erb :"listings/id"
+  end
+
   run! if app_file == $0
 end
