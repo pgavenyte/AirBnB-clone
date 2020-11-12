@@ -13,9 +13,9 @@ describe User do
     end
   end
   describe "#find" do
-    it "finds the user from database by it's id" do
+    it "finds the user from database by it's name" do
       user = User.add("example@email", "password")
-      expect(User.find(user.id).email).to eq "example@email"
+      expect(User.find("example@email").email).to eq "example@email"
     end
   end
 

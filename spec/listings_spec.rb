@@ -1,10 +1,13 @@
 require 'listings'
+require 'user'
 
 describe Listings do
-
+  before(:each) do
+    @user = User.add("example@email", "password")
+  end
   describe '#self.all' do
     it 'shows all the listings' do
-      Listings.add(name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
+      Listings.add(people_id: @user.id, name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
       listings = Listings.all
       expect(listings.first.name).to eq 'Makers Space'
       expect(listings.first.description).to eq 'A beautiful space'
@@ -17,7 +20,7 @@ describe Listings do
 
   describe '#self.add' do
     it 'adds a new listing' do
-      Listings.add(name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
+      Listings.add(people_id: @user.id, name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
       listings = Listings.all
 
       expect(listings.first.name).to eq 'Makers Space'
@@ -29,9 +32,9 @@ describe Listings do
 
   describe '#self.filter' do
     it 'shows available listings' do
-      Listings.add(name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
+      Listings.add(people_id: @user.id, name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
 
-      Listings.add(name: 'January Space', description: 'A beautiful new year space', price: '50', available_from:'2020-12-31', available_to: '2021-02-01', location: 'Reading')
+      Listings.add(people_id: @user.id, name: 'January Space', description: 'A beautiful new year space', price: '50', available_from:'2020-12-31', available_to: '2021-02-01', location: 'Reading')
 
       listings = Listings.filter('2021-01-01', '2021-01-30')
 
@@ -44,10 +47,10 @@ describe Listings do
 
   describe '#self.click' do
     it 'shows all the listings' do
-      listing = Listings.add(name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
-      Listings.all
-      Listings.click(id: listing.id)
-
+      listing = Listings.add(people_id: @user.id, name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
+  
+      
+      expect(Listings.click(id: listing.id)[0].id).to eq listing.id
       expect(listing.name).to eq 'Makers Space'
       expect(listing.description).to eq 'A beautiful space'
       expect(listing.price).to eq '30'

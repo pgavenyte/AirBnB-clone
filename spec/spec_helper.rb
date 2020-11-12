@@ -15,6 +15,7 @@ SimpleCov.start
 ENV['RACK_ENV'] = 'test'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
+require File.join(File.dirname(__FILE__), './features', 'web_helpers.rb')
 
 Capybara.app = MakersBnb
 
@@ -36,7 +37,7 @@ Capybara.app = MakersBnb
 RSpec.configure do |config|
   config.before(:each) do
 
-  
+
     connection
     setup_test_database
     add_row_to_test_database
