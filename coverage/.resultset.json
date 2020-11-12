@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/app.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/app.rb": {
         "lines": [
           1,
           1,
@@ -96,7 +96,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/lib/setup_database.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/lib/setup_database.rb": {
         "lines": [
           1,
           1,
@@ -120,7 +120,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/lib/database_connection.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/lib/database_connection.rb": {
         "lines": [
           1,
           null,
@@ -141,7 +141,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/lib/user.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/lib/user.rb": {
         "lines": [
           1,
           1,
@@ -181,7 +181,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/lib/listings.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/lib/listings.rb": {
         "lines": [
           1,
           1,
@@ -227,7 +227,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/web_helpers.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/web_helpers.rb": {
         "lines": [
           null,
           1,
@@ -273,7 +273,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/database_connection_spec.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/database_connection_spec.rb": {
         "lines": [
           1,
           null,
@@ -301,7 +301,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/add_listing_spec.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/add_listing_spec.rb": {
         "lines": [
           1,
           1,
@@ -330,7 +330,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/test_spec.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/test_spec.rb": {
         "lines": [
           1,
           1,
@@ -340,7 +340,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/user_login_spec.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/user_login_spec.rb": {
         "lines": [
           1,
           1,
@@ -352,45 +352,6 @@
           1,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/user_logout_spec.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/user_sign_up_spec.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
           1,
           1,
           1,
@@ -403,7 +364,46 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/view_listings_spec.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/user_logout_spec.rb": {
+        "lines": [
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/user_sign_up_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/view_listings_spec.rb": {
         "lines": [
           1,
           1,
@@ -439,7 +439,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/listings_spec.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/listings_spec.rb": {
         "lines": [
           1,
           1,
@@ -490,7 +490,7 @@
           null
         ]
       },
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/user_spec.rb": {
+      "/Users/krzysztofkasprzak/Projects/airBnB/spec/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -542,6 +542,6 @@
         ]
       }
     },
-    "timestamp": 1605112249
+    "timestamp": 1605183207
   }
 }
