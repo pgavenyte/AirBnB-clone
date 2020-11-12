@@ -11,7 +11,8 @@ class MakersBnb < Sinatra::Base
   register Sinatra::Flash
 
   get '/' do
-    "Hello World."
+    @logged_in = session[:user_id]
+    erb :"homepage/index"
   end
 
   get '/users/new' do
@@ -56,6 +57,7 @@ class MakersBnb < Sinatra::Base
 
   get '/listings' do
     @listings = Listings.all
+    @logged_in = session[:user_id]
     erb :"listings/view"
   end
 
@@ -65,12 +67,14 @@ class MakersBnb < Sinatra::Base
       redirect '/listings'
     else
       @filter_listings = Listings.filter(params[:filter_from], params[:filter_to])
+      @logged_in = session[:user_id]
       erb(:"listings/filter")
     end
 
   end
 
   get '/listings/new' do
+    @logged_in = session[:user_id]
     erb(:"listings/new")
   end
 
@@ -88,6 +92,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/:id' do
+    @logged_in = session[:user_id]
     @clicked_listing = Listings.click(id: params[:id])
     erb :"listings/id"
   end

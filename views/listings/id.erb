@@ -1,10 +1,44 @@
+<% if @logged_in %>
+  <div style="float: right;">
+    <form action='/sessions' method="post">
+      <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Logout"/>
+    </form>
+  </div>
+
+  <div style="display: flex;">
+    <form action='/listings' method='get'>
+        <input type="submit" value="View Listings"/>
+    </form>
+  </div>
+
+
+<% else %>
+  <div style="float: right;">
+    <form action='/users/new' method='get'>
+        <input type="submit" value="Sign Up"/>
+    </form>
+
+    <form action='/sessions/new' method='get'>
+        <input type="submit" value="Login"/>
+    </form>
+  </div>
+
+  <div style="display: flex;">
+    <form action='/listings' method='get'>
+        <input type="submit" value="View Listings"/>
+    </form>
+  </div>
+
+<% end %>
+
 <h2>You are viewing:</h2>
 <% @clicked_listing.each do |listing| %>
-     <%= listing.name %>, 
-     <%= listing.description %>, 
-     <%= listing.price %>, 
-     <%= listing.available_from %>, 
-     <%= listing.available_to %>, 
+     <%= listing.name %>,
+     <%= listing.description %>,
+     <%= listing.price %>,
+     <%= listing.available_from %>,
+     <%= listing.available_to %>,
      <%= listing.location %>
 <% end %>
 
@@ -13,6 +47,3 @@ Check-in:<input type='date' name='date1'>
 Check-out:<input type='date' name='date2'>
 <input type='submit' value='Book'>
 </form>
-
-
-

@@ -1,0 +1,34 @@
+<% if @logged_in %>
+  <div style="float: right;">
+    <form action='/sessions' method="post">
+      <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Logout"/>
+    </form>
+  </div>
+  
+  Welcome to MakersBnB!
+  <br>
+
+  <form action='/listings/new' method="get">
+    <label>Add a new listing</label>
+    <input type="submit" value="Add new listing">
+  </form>
+<% else %>
+Welcome to MakersBnB!
+<br>
+
+<form action='/users/new' method='get'>
+    <label>Are you a new user?</label>
+    <input type="submit" value="Sign Up"/>
+</form>
+
+<form action='/sessions/new' method='get'>
+    <label>Are you an existing user?</label>
+    <input type="submit" value="Login"/>
+</form>
+<% end %>
+
+<form action='/listings' method='get'>
+    <label>View all listings</label>
+    <input type="submit" value="View Listings"/>
+</form>
