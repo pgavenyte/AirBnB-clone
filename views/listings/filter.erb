@@ -1,6 +1,9 @@
 <% @filter_listings.each do |listing| %>
   <ul>
-    <li> <%= listing.name %>, <%= listing.description %>, <%= listing.price %>, <%= listing.available_from %>, <%= listing.available_to %>, <%= listing.location %> </li>
+    <li>
+    <a href="http://localhost:9292/<%= listing.id %>">
+     <%= listing.name %>, <%= listing.description %>, <%= listing.price %>, <%= listing.available_from %>, <%= listing.available_to %>, <%= listing.location %> </a>
+     </li>
     
   </ul>
 <% end %>

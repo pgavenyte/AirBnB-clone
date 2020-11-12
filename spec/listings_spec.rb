@@ -41,4 +41,19 @@ describe Listings do
 
     end
   end
+
+  describe '#self.click' do
+    it 'shows all the listings' do
+      listing = Listings.add(name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
+      Listings.all
+      Listings.click(id: listing.id)
+
+      expect(listing.name).to eq 'Makers Space'
+      expect(listing.description).to eq 'A beautiful space'
+      expect(listing.price).to eq '30'
+      expect(listing.available_from).to eq '2020-11-15'
+      expect(listing.available_to).to eq '2020-12-10'
+      expect(listing.location).to eq 'London'
+    end
+  end
 end

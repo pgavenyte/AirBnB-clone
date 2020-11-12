@@ -2,9 +2,10 @@ require_relative 'database_connection'
 require 'date'
 
 class Listings
-  attr_reader :name, :description, :price, :available_from, :available_to, :location
+  attr_reader :id, :name, :description, :price, :available_from, :available_to, :location
 
-  def initialize(name:, description:, price:, available_from:, available_to:, location:)
+  def initialize(id:, name:, description:, price:, available_from:, available_to:, location:)
+    @id = id
     @name = name
     @description = description
     @price = price
@@ -16,26 +17,27 @@ class Listings
   def self.all
     result = DatabaseConnection.query("SELECT * FROM listing;")
     result.map do |listing|
-      Listings.new(name: listing['name'], description: listing['description'], price: listing['price'], available_from: listing['av_from'], available_to: listing['av_to'], location: listing['location'])
+      Listings.new(id: listing['id'], name: listing['name'], description: listing['description'], price: listing['price'], available_from: listing['av_from'], available_to: listing['av_to'], location: listing['location'])
     end
   end
 
   def self.filter(filter_from, filter_to)
-    from = Date.parse(filter_from)
-    to = Date.parse(filter_to)
-    result = DatabaseConnection.query("SELECT * FROM listing WHERE av_from < '#{from}' AND av_to > '#{to}';")
+    result = DatabaseConnection.query("SELECT * FROM listing WHERE av_from < '#{filter_from}' AND av_to > '#{filter_to}';")
     result.map do |listing|
-      Listings.new(name: listing['name'], description: listing['description'], price: listing['price'], available_from: listing['av_from'], available_to: listing['av_to'], location: listing['location'])
+      Listings.new(id: listing['id'], name: listing['name'], description: listing['description'], price: listing['price'], available_from: listing['av_from'], available_to: listing['av_to'], location: listing['location'])
     end
   end
 
   def self.add(name:, description:, price:, available_from:, available_to:, location:)
-    result = DatabaseConnection.query("INSERT INTO listing (name, description, price, av_from, av_to, location) VALUES('#{name}', '#{description}', '#{price}', '#{available_from}', '#{available_to}', '#{location}') RETURNING name, description, price, av_from, av_to, location;")
-    Listings.new(name: result[0]['name'], description: result[0]['description'], price: result[0]['price'], available_from: result[0]['av_from'], available_to: result[0]['av_to'], location: result[0]['location'])
+    result = DatabaseConnection.query("INSERT INTO listing (name, description, price, av_from, av_to, location) VALUES('#{name}', '#{description}', '#{price}', '#{available_from}', '#{available_to}', '#{location}') RETURNING id, name, description, price, av_from, av_to, location;")
+    Listings.new(id: result[0]['id'], name: result[0]['name'], description: result[0]['description'], price: result[0]['price'], available_from: result[0]['av_from'], available_to: result[0]['av_to'], location: result[0]['location'])
   end
 
+  def self.click(id:)
+    result = DatabaseConnection.query("SELECT * FROM listing WHERE id = #{id};")
+    result.map do |listing|
+      Listings.new(id: listing['id'], name: listing['name'], description: listing['description'], price: listing['price'], available_from: listing['av_from'], available_to: listing['av_to'], location: listing['location'])
+    end
+  end
 end
 
-
-# connection1.exec("CREATE TABLE listing (id SERIAL PRIMARY KEY, people_id INTEGER REFERENCES people (id), name  VARCHAR(60), description VARCHAR, price INT, av_from DATE, av_to DATE, location VARCHAR(60));")
-#connection.exec("INSERT INTO peeps (message, date) VALUES('#{peep}', '#{time}') RETURNING message, date;")
