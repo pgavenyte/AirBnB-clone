@@ -54,13 +54,15 @@ body {
   font-size: 35px;
   height: 30px;
   margin-top: 10;
+  margin-bottom: 40;
+  -webkit-text-stroke-width: 0.4px;
+  -webkit-text-stroke-color: #b86d0d;
 }
 .listing_details h2 {
   color: #878787;
   font-size: 18px;
   font-weight: lighter;
-  border: solid 1px white;
-  height: 130px;
+  height: 120px;
   text-align: center;
   vertical-align: middle;
 }
@@ -82,11 +84,9 @@ font-weight: lighter;
 
 .listing_price {
   float: left;
-  color: white;
+  color: #b86d0d;
   margin: -15 0 0 38;
   font-size: 20px;
-  -webkit-text-stroke-width: 0.8px;
-  -webkit-text-stroke-color: #b86d0d;
 }
 
 

@@ -29,7 +29,7 @@ feature 'viewing all the listings' do
 
     click_link('Makers Space')
 
-    expect(current_path).to eq "/#{result[0]['id']}"
+    expect(current_path).to eq "/listings/#{result[0]['id']}"
     expect(page).to have_content('You are viewing:')
   end
 
