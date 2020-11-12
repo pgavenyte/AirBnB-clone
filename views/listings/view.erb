@@ -40,8 +40,8 @@
 <% @listings.each do |listing| %>
   <ul>
     <li>
-    <a href="<%= listing.id %>">
-     <%= listing.name %>, 
+    <a href="/listings/<%=listing.id %>">
+     <%= listing.name %>,
      <%= listing.description %>, <%= listing.price %>, <%= listing.available_from %>, <%= listing.available_to %>, <%= listing.location %> </a>
      </li>
 

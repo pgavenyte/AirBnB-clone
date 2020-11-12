@@ -3,6 +3,8 @@ require 'sinatra/flash'
 require_relative './lib/setup_database'
 require_relative './lib/user'
 require_relative './lib/listings'
+require_relative './lib/bookings'
+
 
 connection
 
@@ -91,10 +93,23 @@ class MakersBnb < Sinatra::Base
     end
   end
 
-  get '/:id' do
-    @logged_in = session[:user_id]
+  get '/listings/:id' do
     @clicked_listing = Listings.click(id: params[:id])
     erb :"listings/id"
+  end
+
+  post '/listings/:id' do
+    if session[:user_id] == nil
+      flash[:notice] = 'Please login to book a space'
+      redirect '/listings'
+    elsif params[:date2] < params[:date1]
+      flash[:notice] = 'Choose appropriate booking dates'
+      redirect "/listings/#{params[:listing_id]}"
+    else
+      Booking.add(session[:user_id], params[:listing_id])
+      flash[:notice] = 'Your request has been sent'
+      redirect '/listings'
+    end
   end
 
   run! if app_file == $0
