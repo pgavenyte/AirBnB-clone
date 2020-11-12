@@ -12,11 +12,11 @@ class MakersBnb < Sinatra::Base
 
   get '/' do
     @logged_in = session[:user_id]
-    erb :"homepage/index"
+    erb :"homepage/index", :style => :style
   end
 
   get '/users/new' do
-    erb(:"users/new")
+    erb :"users/new", :style => :style
   end
 
   post '/users' do
@@ -31,7 +31,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/sessions/new' do
-    erb(:"sessions/new")
+    erb :"sessions/new", :style => :style
   end
 
   post '/sessions' do
@@ -46,7 +46,7 @@ class MakersBnb < Sinatra::Base
   end
 
  get '/sessions/destroy' do
-   erb(:"sessions/destroy")
+   erb :"sessions/destroy", :style => :style
   end
 
   delete '/sessions' do
@@ -58,7 +58,7 @@ class MakersBnb < Sinatra::Base
   get '/listings' do
     @listings = Listings.all
     @logged_in = session[:user_id]
-    erb :"listings/view"
+    erb :"listings/view", :style => :style
   end
 
   post '/listings/filter' do
@@ -68,14 +68,14 @@ class MakersBnb < Sinatra::Base
     else
       @filter_listings = Listings.filter(params[:filter_from], params[:filter_to])
       @logged_in = session[:user_id]
-      erb(:"listings/filter")
+      erb :"listings/filter", :style => :style
     end
 
   end
 
   get '/listings/new' do
     @logged_in = session[:user_id]
-    erb(:"listings/new")
+    erb :"listings/new", :style => :style
   end
 
   post '/listings/new' do
@@ -94,8 +94,13 @@ class MakersBnb < Sinatra::Base
   get '/:id' do
     @logged_in = session[:user_id]
     @clicked_listing = Listings.click(id: params[:id])
-    erb :"listings/id"
+    erb :"listings/id", :style => :style
   end
+
+  post '/:id' do
+    Booking.add(session[:user_id], params[:id] )
+  end
+  
 
   run! if app_file == $0
 end
