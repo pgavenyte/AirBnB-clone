@@ -97,5 +97,10 @@ class MakersBnb < Sinatra::Base
     erb :"listings/id", :style => :style
   end
 
+  post '/:id' do
+    Booking.add(session[:user_id], params[:id] )
+  end
+  
+
   run! if app_file == $0
 end
