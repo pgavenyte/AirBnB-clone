@@ -92,6 +92,7 @@ class MakersBnb < Sinatra::Base
   end
 
   get '/:id' do
+    @logged_in = session[:user_id]
     @clicked_listing = Listings.click(id: params[:id])
     erb :"listings/id"
   end
