@@ -2,7 +2,7 @@ feature 'viewing all the listings' do
   scenario 'a user can see all the spaces' do
     log_in
     add_new_listing
-    expect(page).to have_content('Makers Space, A beautiful space, 30, 2020-11-15, 2020-12-10, London')
+    expect(page).to have_link('Makers Space, A beautiful space, 30, 2020-11-15, 2020-12-10, London')
   end
 
   scenario 'a user can see available spaces' do
@@ -17,9 +17,23 @@ feature 'viewing all the listings' do
     expect(page).to have_content('January Space, A beautiful new year space, 50, 2020-12-31, 2021-02-01, Reading')
   end
 
-  scenario 'a user cannot see available spaces if filter from is later than filter to' do
+  scenario 'a user can click on a specific listing' do
+
     log_in
     add_new_listing
+
+    con = PG.connect(dbname: 'makers_bnb_test')
+    result = con.exec("SELECT * FROM listing;")
+
+    click_link('Makers Space')
+    
+    expect(current_path).to eq "/#{result[0]['id']}"
+    expect(page).to have_content('You are viewing:')
+  end
+
+
+  scenario 'a user cannot see available spaces if filter from is later than filter to' do
+    visit('/listings')
     fill_in('filter_from', with: '2021-01-15')
     fill_in('filter_to', with: '2021-01-10')
     click_button('Filter')
@@ -27,6 +41,7 @@ feature 'viewing all the listings' do
     expect(page).to have_content('Choose appropriate filter dates')
   end
 
+    
 
 
 end

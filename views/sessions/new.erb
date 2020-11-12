@@ -3,9 +3,20 @@
     <input type="password" name="password" required="required" placeholder="password"/>
     <input type="submit" value="Login"/>
 </form>
+
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
     <%= flash[type] %>
     <a href="#" class="close">&times;</a>
   </div>
 <% end %>
+
+<form action='/users/new' method='get'>
+    <label>Are you a new user?</label>
+    <input type="submit" value="Sign Up"/>
+</form>
+
+<form action='/listings' method='get'>
+    <label>View all listings</label>
+    <input type="submit" value="View Listings"/>
+</form>
