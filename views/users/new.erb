@@ -1,3 +1,11 @@
+<link rel="stylesheet" href="/css/cssfile.css">
+
+<div class="logo">
+  <a href='/'>
+    <img src="/img/logo.png">
+  </a>
+</div>
+
 <form action='/users' method='post'>
     <input type="text" name="email" required="required" placeholder="email address"/>
     <input type="password" name="password" required="required" placeholder="password"/>
@@ -16,4 +24,9 @@
 <form action='/sessions/new' method='get'>
     <label>Are you an existing user?</label>
     <input type="submit" value="Login"/>
+</form>
+
+<form action='/listings' method='get'>
+    <label>View all listings</label>
+    <input type="submit" value="View Listings"/>
 </form>

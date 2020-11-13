@@ -1,3 +1,11 @@
+<link rel="stylesheet" href="/css/cssfile.css">
+
+<div class="logo">
+  <a href='/'>
+    <img src="/img/logo.png">
+  </a>
+</div>
+
 <% if @logged_in %>
   <div style="float: right;">
     <form action='/sessions' method="post">
@@ -32,15 +40,23 @@
 
 <% end %>
 
-<h2>You are viewing:</h2>
-<% @clicked_listing.each do |listing| %>
-     <%= listing.name %>,
-     <%= listing.description %>,
-     <%= listing.price %>,
-     <%= listing.available_from %>,
-     <%= listing.available_to %>,
-     <%= listing.location %>
-<% end %>
+<div>
+  <h2>You are viewing:</h2>
+  <% @clicked_listing.each do |listing| %>
+       <%= listing.name %> <br> <%= listing.location %>
+       <br><br>
+       <%= listing.description %>
+       <br><br>
+       <img src="/img/apartment.jpg">
+       <br><br>
+       Price per night: £<%= listing.price %>
+       <br><br>
+       Availability: <%= listing.available_from %> to <%= listing.available_to %>,
+  <% end %>
+
+</div>
+
+<br>
 
 <form action ='/listings/:id' method='post'>
 <input type="hidden" name="listing_id" value="<%= @clicked_listing[0].id %>">
