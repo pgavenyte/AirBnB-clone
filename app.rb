@@ -106,7 +106,7 @@ class MakersBnb < Sinatra::Base
       flash[:notice] = 'Choose appropriate booking dates'
       redirect "/listings/#{params[:listing_id]}"
     else
-      Booking.add(session[:user_id], params[:listing_id])
+      Booking.add(session[:user_id], params[:listing_id], params[:date1], params[:date2])
       flash[:notice] = 'Your request has been sent'
       redirect '/listings'
     end
