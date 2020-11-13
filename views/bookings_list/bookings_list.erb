@@ -6,30 +6,22 @@
   </a>
 </div>
 
-<% if @logged_in %>
-  <div style="float: right;">
-    <form action='/sessions' method="post">
-      <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Logout"/>
-    </form>
-  </div>
-  <div style="float: right;">
-    <form action='/listings' method="get">
-        <input type="submit" value="Back to listings"/>
-    </form>
-  </div>
-<% else %>
-  <div style="float: right;">
-    <form action='/users/new' method='get'>
-        <input type="submit" value="Sign Up"/>
-    </form>
+<div class="top_right_buttons">
+  <form action='/sessions' method="post">
+    <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Logout"/>
+  </form>
+</div>
 
-    <form action='/sessions/new' method='get'>
-        <input type="submit" value="Login"/>
-    </form>
-  </div>
-<% end %>
-<br style="font-size:34px"> </br>
+<div class="listing_buttons">
+  <form action='/listings' method='get'>
+      <input type="submit" value="View Listings"/>
+  </form>
+
+  <form action='/listings/new' method="get">
+    <input type="submit" value="Add new listing">
+  </form>
+</div>
 
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
@@ -37,6 +29,10 @@
     <a href="#" class="close">&times;</a>
   </div>
 <% end %>
+
+<div class="welcome">
+  <h1>Your Bookings</h1>
+</div>
 
 <% @listings.each do |listing| %>
   <a href="/listings/<%= listing.id %>">

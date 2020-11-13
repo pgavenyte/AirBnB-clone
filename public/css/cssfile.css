@@ -5,6 +5,7 @@ body {
 
 .welcome {
   margin: auto;
+  padding-top: 70px;
   text-align: center;
   font-size: 25px;
   color: white;
@@ -12,6 +13,8 @@ body {
 
 .logo {
   float: left;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .logo a img {
@@ -93,11 +96,15 @@ a {
 .top_right_buttons {
   float: right;
   display: flex;
+  margin-right: 40px;
+  margin-top: 20px;
 }
 
 .listing_buttons {
   display: flex;
   float: left;
+  margin-top: 20px;
+  margin-right: 40px;
 }
 
 .homepage_buttons {

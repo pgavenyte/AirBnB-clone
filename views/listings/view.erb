@@ -27,15 +27,21 @@
   </div>
 <% end %>
 
-<form action='/listings/new' method="get">
-  <input type="submit" value="Add new listing">
-</form>
+<div class="listing_buttons">
+  <form action='/listings/new' method="get">
+    <input type="submit" value="Add new listing">
+  </form>
+</div>
 
-<form action='/listings/filter' method="post">
-  <input type="date" name="filter_from" required>
-  <input type="date" name="filter_to" required>
-  <input type="submit" value="Filter">
-</form>
+
+<div class="listing_buttons">
+  <form action='/listings/filter' method="post">
+    <input type="date" name="filter_from" required>
+    <input type="date" name="filter_to" required>
+    <input type="submit" value="Filter">
+  </form>
+</div>
+
 
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
