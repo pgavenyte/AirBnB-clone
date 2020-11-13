@@ -14,8 +14,8 @@
     </form>
   </div>
   <div style="float: right;">
-    <form action='/bookings' method="get">
-        <input type="submit" value="My Bookings"/>
+    <form action='/listings' method="get">
+        <input type="submit" value="Back to listings"/>
     </form>
   </div>
 <% else %>
@@ -29,16 +29,7 @@
     </form>
   </div>
 <% end %>
-
-<form action='/listings/new' method="get">
-  <input type="submit" value="Add new listing">
-</form>
-
-<form action='/listings/filter' method="post">
-  <input type="date" name="filter_from">
-  <input type="date" name="filter_to">
-  <input type="submit" value="Filter">
-</form>
+<br style="font-size:34px"> </br>
 
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
@@ -54,15 +45,15 @@
         <img src="/img/apartment.jpg">
       </div>
       <div class="listing_details">
-        <h1><%= listing.name %></h1>
-        <h2><%= listing.description %></h2>
+        <h1><%= Listings.click(id: listing.listing_id)[0].name %></h1>
+        <h2><%= Listings.click(id: listing.listing_id)[0].description %></h2>
       </div>
       <div class="listing_price">
-        <h3>Price per night: £<%= listing.price %></h3>
+        <h3>Total: £<%= '%.2f' % (Listings.click(id: listing.listing_id)[0].price.to_f * (DateTime.parse(listing.check_out) - DateTime.parse(listing.check_in)).to_i).round(2)%></h3>
       </div>
       <div class='listing_details_small'>
-        <h5><%= listing.location %></h5>
-        <h4>Available from <%= listing.available_from %> to <%= listing.available_to %></h4>
+        <h5><%= Listings.click(id: listing.listing_id)[0].location %></h5>
+        <h4>Check in: <%= listing.check_in %>, Check out: <%= listing.check_out %></h4>
       </div>
     </section></a>
 
