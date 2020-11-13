@@ -10,7 +10,6 @@ body {
   color: white;
 }
 
-
 .logo {
   float: left;
 }
@@ -91,12 +90,9 @@ a {
   text-decoration: none;
 }
 
-.logout {
+.top_right_buttons {
   float: right;
-}
-.signup_login {
   display: flex;
-  float: right;
 }
 
 .listing_buttons {
@@ -129,6 +125,11 @@ form input:hover {
 
 .new_listing_form input {
   width: 300px;
+}
+
+.new_listing_form h3 {
+  font-size: 13px;
+  color: #fff1db;
 }
 
 .description {

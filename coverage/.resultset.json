@@ -483,10 +483,7 @@
           null
         ]
       },
-<<<<<<< HEAD
-      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/test_spec.rb": {
-=======
-      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/bookinglist_spec.rb": {
+      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/bookinglist_spec.rb": {
         "lines": [
           1,
           1,
@@ -505,8 +502,7 @@
           null
         ]
       },
-      "/Users/krzysztofkasprzak/Projects/airBnB/spec/features/test_spec.rb": {
->>>>>>> 36e1f10e967d85f649f3056d70e9ccc4859f7640
+      "/Users/esthermakers/Documents/Projects/WEEK 7/Makers_AirBnB_team5/spec/features/test_spec.rb": {
         "lines": [
           1,
           1,
@@ -750,10 +746,6 @@
         ]
       }
     },
-<<<<<<< HEAD
-    "timestamp": 1605272658
-=======
-    "timestamp": 1605267956
->>>>>>> 36e1f10e967d85f649f3056d70e9ccc4859f7640
+    "timestamp": 1605272845
   }
 }

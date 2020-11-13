@@ -1,7 +1,10 @@
 <link rel="stylesheet" href="/css/cssfile.css">
 
 <% if @logged_in %>
-  <div class="logout"">
+  <div class="top_right_buttons">
+    <form action='/bookings' method="get">
+        <input type="submit" value="My Bookings"/>
+    </form>
     <form action='/sessions' method="post">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout"/>

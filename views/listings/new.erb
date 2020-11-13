@@ -7,38 +7,32 @@
 </div>
 
 <% if @logged_in %>
-  <div class="logout">
+  <div class="top_right_buttons">
+    <form action='/bookings' method="get">
+        <input type="submit" value="My Bookings"/>
+    </form>
     <form action='/sessions' method="post">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout"/>
     </form>
   </div>
-
-  <div style="display: flex;">
-    <form action='/listings' method='get'>
-        <input type="submit" value="View Listings"/>
-    </form>
-  </div>
-
-
 <% else %>
-  <div class="signup_login">
+  <div class="top_right_buttons">
     <form action='/users/new' method='get'>
         <input type="submit" value="Sign Up"/>
     </form>
-
     <form action='/sessions/new' method='get'>
         <input type="submit" value="Login"/>
     </form>
   </div>
-
-  <div style="display: flex;">
-    <form action='/listings' method='get'>
-        <input type="submit" value="View Listings"/>
-    </form>
-  </div>
-
 <% end %>
+
+<div style="display: flex;">
+  <form action='/listings' method='get'>
+      <input type="submit" value="View Listings"/>
+  </form>
+</div>
+
 <br><br>
 
 <div class="new_listing_form">
@@ -54,7 +48,10 @@
     <input class="textbox-n" type="text" onfocus="(this.type='date')" id="date" placeholder="Available From" name='available_from'  min="<%= "#{DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day).strftime("%Y-%m-%d")}" %>" required /><br><br>
     <input class="textbox-n" type="text" onfocus="(this.type='date')" id="date" placeholder="Available To" name='available_to' min="<%= "#{DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1).strftime("%Y-%m-%d")}" %>" required /><br><br>
     <input type='submit' value='Add'>
-  </form>
+  </form><br>
+  <% if @logged_in == nil %>
+    <h3>You need to log in or sign up before adding a listing.</h3>
+  <% end %>
 </div>
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
