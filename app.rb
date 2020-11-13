@@ -1,3 +1,4 @@
+require 'date'
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative './lib/setup_database'
@@ -111,6 +112,11 @@ class MakersBnb < Sinatra::Base
       flash[:notice] = 'Your request has been sent'
       redirect '/listings'
     end
+  end
+  get '/bookings' do
+    @logged_in = session[:user_id]
+    @listings = Booking.find(@logged_in)
+    erb :"bookings_list/bookings_list"
   end
 
   run! if app_file == $0

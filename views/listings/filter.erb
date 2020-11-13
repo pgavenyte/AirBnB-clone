@@ -7,32 +7,47 @@
 </div>
 
 <% if @logged_in %>
-  <div style="float: right;">
+  <div class="top_right_buttons">
+    <form action='/bookings' method="get">
+        <input type="submit" value="My Bookings"/>
+    </form>
     <form action='/sessions' method="post">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout"/>
     </form>
   </div>
-
 <% else %>
-  <div style="float: right;">
+  <div class="top_right_buttons">
     <form action='/users/new' method='get'>
         <input type="submit" value="Sign Up"/>
     </form>
-
     <form action='/sessions/new' method='get'>
         <input type="submit" value="Login"/>
     </form>
   </div>
 <% end %>
 
-<form action='/listings' method='get'>
-    <input type="submit" value="View Listings"/>
-</form>
+<div class="listing_buttons">
+  <form action='/listings' method='get'>
+      <input type="submit" value="View Listings"/>
+  </form>
 
-<form action='/listings/new' method="get">
-  <input type="submit" value="Add new listing">
-</form>
+  <form action='/listings/new' method="get">
+    <input type="submit" value="Add new listing">
+  </form>
+</div>
+
+<div class="listing_buttons">
+  <form action='/listings/filter' method="post">
+    <input type="date" name="filter_from" required>
+    <input type="date" name="filter_to" required>
+    <input type="submit" value="Filter">
+  </form>
+</div>
+
+<div class="welcome">
+  <h2>Available Listings for your chosen dates</h2>
+</div>
 
 <% @filter_listings.each do |listing| %>
 <a href="<%= listing.id %>">

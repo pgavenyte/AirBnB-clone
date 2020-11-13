@@ -7,52 +7,51 @@
 </div>
 
 <% if @logged_in %>
-  <div style="float: right;">
+  <div class="top_right_buttons">
+    <form action='/bookings' method="get">
+        <input type="submit" value="My Bookings"/>
+    </form>
     <form action='/sessions' method="post">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout"/>
     </form>
   </div>
-
-  <div style="display: flex;">
-    <form action='/listings' method='get'>
-        <input type="submit" value="View Listings"/>
-    </form>
-  </div>
-
-
 <% else %>
-  <div style="float: right;">
+  <div class="top_right_buttons">
     <form action='/users/new' method='get'>
         <input type="submit" value="Sign Up"/>
     </form>
-
     <form action='/sessions/new' method='get'>
         <input type="submit" value="Login"/>
     </form>
   </div>
-
-  <div style="display: flex;">
-    <form action='/listings' method='get'>
-        <input type="submit" value="View Listings"/>
-    </form>
-  </div>
-
 <% end %>
 
+<div class="listing_buttons">
+  <form action='/listings' method='get'>
+      <input type="submit" value="View Listings"/>
+  </form>
+</div>
 
-List a  space
-<br>
-<form action="/listings/new" method="post">
-  Name <input type='text' name='name' required />
-  Location <input type='text' name='location' required />
-  Description<input type='text' name='description' required />
-  Price <input type='integer' name='price' required />
-  Available From <input type='date' name='available_from'  min="<%= "#{DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day).strftime("%Y-%m-%d")}" %>" required />
-  Available To <input type='date' name='available_to' min="<%= "#{DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1).strftime("%Y-%m-%d")}" %>" required />
-  <input type='submit' value='Add'>
-</form>
+<br><br>
 
+<div class="new_listing_form">
+  <h1 class="welcome"> List a  space </h1><br>
+  <form action="/listings/new" method="post">
+    <input type='text' placeholder="Name" name='name' required /><br><br>
+    <input type='text' placeholder="Location" name='location' required /><br><br>
+    <input class="description" type='text' placeholder="Description" name='description' required /><br><br>
+    <input type='integer' placeholder="Price" name='price' required />
+    <h1 class="welcome">Availability</h1>
+    <br>
+    <input class="textbox-n" type="text" onfocus="(this.type='date')" id="date" placeholder="Available From" name='available_from'  min="<%= "#{DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day).strftime("%Y-%m-%d")}" %>" required /><br><br>
+    <input class="textbox-n" type="text" onfocus="(this.type='date')" id="date" placeholder="Available To" name='available_to' min="<%= "#{DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day + 1).strftime("%Y-%m-%d")}" %>" required /><br><br>
+    <input type='submit' value='Add'>
+  </form><br>
+  <% if @logged_in == nil %>
+    <h3>You need to log in or sign up before adding a listing.</h3>
+  <% end %>
+</div>
 <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
     <%= flash[type] %>

@@ -23,7 +23,7 @@ class Listings
   end
 
   def self.filter(filter_from, filter_to)
-    result = DatabaseConnection.query("SELECT * FROM listing WHERE av_from < '#{filter_from}' AND av_to > '#{filter_to}';")
+    result = DatabaseConnection.query("SELECT * FROM listing WHERE av_from <= '#{filter_from}' AND av_to >= '#{filter_to}';")
     result.map do |listing|
       Listings.new(id: listing['id'], people_id: listing['people_id'], name: listing['name'], description: listing['description'], price: listing['price'], available_from: listing['av_from'], available_to: listing['av_to'], location: listing['location'])
     end

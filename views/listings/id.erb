@@ -7,67 +7,61 @@
 </div>
 
 <% if @logged_in %>
-  <div style="float: right;">
+  <div class="top_right_buttons">
+    <form action='/bookings' method="get">
+        <input type="submit" value="My Bookings"/>
+    </form>
     <form action='/sessions' method="post">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout"/>
     </form>
   </div>
-
-  <div style="display: flex;">
-    <form action='/listings' method='get'>
-        <input type="submit" value="View Listings"/>
-    </form>
-  </div>
-
-
 <% else %>
-  <div style="float: right;">
+  <div class="top_right_buttons">
     <form action='/users/new' method='get'>
         <input type="submit" value="Sign Up"/>
     </form>
-
     <form action='/sessions/new' method='get'>
         <input type="submit" value="Login"/>
     </form>
   </div>
-
-  <div style="display: flex;">
-    <form action='/listings' method='get'>
-        <input type="submit" value="View Listings"/>
-    </form>
-  </div>
-
 <% end %>
 
-<div>
-  <h2>You are viewing:</h2>
-  <% @clicked_listing.each do |listing| %>
-       <%= listing.name %> <br> <%= listing.location %>
-       <br><br>
-       <%= listing.description %>
-       <br><br>
-       <img src="/img/apartment.jpg">
-       <br><br>
-       Price per night: £<%= listing.price %>
-       <br><br>
-       Availability: <%= listing.available_from %> to <%= listing.available_to %>,
-  <% end %>
+<div class="listing_buttons">
+  <form action='/listings' method='get'>
+      <input type="submit" value="View Listings"/>
+  </form>
 
+  <form action='/listings/new' method="get">
+    <input type="submit" value="Add new listing">
+  </form>
 </div>
 
-<br>
 
-<form action ='/listings/:id' method='post'>
-<input type="hidden" name="listing_id" value="<%= @clicked_listing[0].id %>">
-Check-in:<input type='date' name='date1' min="<%= @clicked_listing[0].available_from %>" max="<%= @clicked_listing[0].available_to  %>" required />
-Check-out:<input type='date' name='date2' min="<%= @clicked_listing[0].available_from%>" max="<%= @clicked_listing[0].available_to  %>" required />
-<input type='submit' value='Book'>
-</form>
+<div class="listing_view">
+  <h2 class="welcome">You are viewing:</h2>
+  <% @clicked_listing.each do |listing| %>
+    <h1><%= listing.name %> - <%= listing.location %></h1><br>
+    <h3><%= listing.description %></h3>
+    <br><br>
+    <img src="/img/apartment.jpg"><br><br>
+    <h4>Price per night: £<%= listing.price %></h4>
+    <h5>Availability: <%= listing.available_from %> to <%= listing.available_to %><h5>
+  <% end %>
+  <br>
+  <div class="booking_form">
+    <form action ='/listings/:id' method='post'>
+    <input type="hidden" name="listing_id" value="<%= @clicked_listing[0].id %>">
+    Check-in: <input type='date' name='date1' min="<%= @clicked_listing[0].available_from %>" max="<%= @clicked_listing[0].available_to  %>" required /><br><br>
+    Check-out: <input type='date' name='date2' min="<%= @clicked_listing[0].available_from%>" max="<%= @clicked_listing[0].available_to  %>" required /><br><br>
+    <input type='submit' value='Book'>
+    </form>
 
-<% flash.keys.each do |type| %>
-  <div data-alert class="flash <%= type %> alert-box radius">
-    <%= flash[type] %>
-    <a href="#" class="close">&times;</a>
+    <% flash.keys.each do |type| %>
+      <div data-alert class="flash <%= type %> alert-box radius">
+        <%= flash[type] %>
+        <a href="#" class="close">&times;</a>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
