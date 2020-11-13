@@ -18,6 +18,12 @@ describe User do
       expect(User.find("example@email").email).to eq "example@email"
     end
   end
+  describe "#user_find" do
+    it "finds the user from database by it's id" do
+      user = User.add("example@email", "password")
+      expect(User.user_find(user.id).email).to eq "example@email"
+    end
+  end
 
   describe "#authenticate" do
     it "validate the user" do

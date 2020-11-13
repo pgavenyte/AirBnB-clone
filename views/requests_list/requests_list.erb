@@ -7,9 +7,6 @@
 </div>
 
 <div class="top_right_buttons">
-  <form action='/requests' method="get">
-      <input type="submit" value="My Requests"/>
-  </form>
   <form action='/sessions' method="post">
     <input type="hidden" name="_method" value="DELETE">
       <input type="submit" value="Logout"/>
@@ -34,7 +31,7 @@
 <% end %>
 
 <div class="welcome">
-  <h1>Your Bookings</h1>
+  <h1>Your Requests</h1>
 </div>
 
 <% @listings.each do |listing| %>
@@ -45,7 +42,7 @@
       </div>
       <div class="listing_details">
         <h1><%= Listings.click(id: listing.listing_id)[0].name %></h1>
-        <h2><%= Listings.click(id: listing.listing_id)[0].description %></h2>
+        <h2>Guest: <%= User.user_find(listing.booker_id).email%></h2>
       </div>
       <div class="listing_price">
         <h3>Total: £<%= '%.2f' % (Listings.click(id: listing.listing_id)[0].price.to_f * (DateTime.parse(listing.check_out) - DateTime.parse(listing.check_in)).to_i).round(2)%></h3>

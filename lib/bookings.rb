@@ -1,14 +1,15 @@
 require_relative 'database_connection'
 
 class Booking
-  attr_reader :id, :people_id, :listing_id, :check_in, :check_out
+  attr_reader :id, :people_id, :listing_id, :check_in, :check_out, :booker_id
 
-  def initialize(id, people_id, listing_id, check_in, check_out)
+  def initialize(id, people_id, listing_id, check_in, check_out, booker_id="10")
     @id = id
     @people_id = people_id
     @listing_id = listing_id
     @check_in = check_in
     @check_out = check_out
+    @booker_id = booker_id
   end
 
   def self.all
@@ -25,6 +26,12 @@ class Booking
     return nil unless people_id
     result = DatabaseConnection.query("SELECT * FROM booking WHERE people_id='#{people_id}';")
     result.map { |booking| Booking.new(booking['id'], booking['people_id'], booking['listing_id'], booking['check_in'], booking['check_out']) }
+  end
+
+  def self.requests_find(people_id)
+    return nil unless people_id
+    result = DatabaseConnection.query("SELECT *, booking.people_id AS booker_id, listing.people_id AS lister_id FROM booking INNER JOIN listing ON (listing_id=listing.id) WHERE listing.people_id='#{people_id}';")
+    result.map { |booking| Booking.new(booking['id'], booking['people_id'], booking['listing_id'], booking['check_in'], booking['check_out'], booking['booker_id']) }
   end
 
 end

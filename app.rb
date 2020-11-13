@@ -119,5 +119,11 @@ class MakersBnb < Sinatra::Base
     erb :"bookings_list/bookings_list"
   end
 
+  get '/requests' do
+    @logged_in = session[:user_id]
+    @listings = Booking.requests_find(@logged_in)
+    erb :"requests_list/requests_list"
+  end
+
   run! if app_file == $0
 end
