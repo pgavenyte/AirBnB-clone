@@ -7,7 +7,7 @@
 </div>
 
 <% if @logged_in %>
-  <div style="float: right;">
+  <div class="logout">
     <form action='/sessions' method="post">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout"/>
@@ -15,7 +15,7 @@
   </div>
 
 <% else %>
-  <div style="float: right;">
+  <div class="signup_login">
     <form action='/users/new' method='get'>
         <input type="submit" value="Sign Up"/>
     </form>
@@ -33,6 +33,16 @@
 <form action='/listings/new' method="get">
   <input type="submit" value="Add new listing">
 </form>
+
+<form action='/listings/filter' method="post">
+  <input type="date" name="filter_from" required>
+  <input type="date" name="filter_to" required>
+  <input type="submit" value="Filter">
+</form>
+
+<div class="welcome">
+  <h2>Available Listings for your chosen dates</h2>
+</div>
 
 <% @filter_listings.each do |listing| %>
 <a href="<%= listing.id %>">

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/css/cssfile.css">
 
 <% if @logged_in %>
-  <div class="login_logout">
+  <div class="logout"">
     <form action='/sessions' method="post">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout"/>
@@ -17,37 +17,39 @@
   </div>
 
   <div class="welcome">
-    <h1> Welcome to MakersBnB! </h1>
+    <h1>Welcome to MakersBnB!</h1>
   </div>
 </div>
 
-<% if @logged_in %>
-  <form action='/listings/new' method="get">
-    <label>Add a new listing</label>
-    <input type="submit" value="Add new listing">
+<div class="homepage_buttons">
+  <% if @logged_in %>
+    <form action='/listings/new' method="get">
+      <label>Add a new listing</label>
+      <input type="submit" value="Add new listing">
+    </form>
+  <% else %>
+
+  <form action='/users/new' method='get'>
+      <label>Are you a new user?</label>
+      <input type="submit" value="Sign Up"/>
   </form>
-<% else %>
 
-<form action='/users/new' method='get'>
-    <label>Are you a new user?</label>
-    <input type="submit" value="Sign Up"/>
-</form>
+  <form action='/sessions/new' method='get'>
+      <label>Are you an existing user?</label>
+      <input type="submit" value="Login"/>
+  </form>
+  <% end %>
 
-<form action='/sessions/new' method='get'>
-    <label>Are you an existing user?</label>
-    <input type="submit" value="Login"/>
-</form>
-<% end %>
-
-<form action='/listings' method='get'>
-    <label>View all listings</label>
-    <input type="submit" value="View Listings"/>
-</form>
+  <form action='/listings' method='get'>
+      <label>View all listings</label>
+      <input type="submit" value="View Listings"/>
+  </form>
 
 
-<% flash.keys.each do |type| %>
-  <div data-alert class="flash <%= type %> alert-box radius">
-    <%= flash[type] %>
-    <a href="#" class="close">&times;</a>
-  </div>
-<% end %>
+  <% flash.keys.each do |type| %>
+    <div data-alert class="flash <%= type %> alert-box radius">
+      <%= flash[type] %>
+      <a href="#" class="close">&times;</a>
+    </div>
+  <% end %>
+</div>

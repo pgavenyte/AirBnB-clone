@@ -7,14 +7,14 @@
 </div>
 
 <% if @logged_in %>
-  <div style="float: right;">
+  <div class="logout">
     <form action='/sessions' method="post">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Logout"/>
     </form>
   </div>
 <% else %>
-  <div style="float: right;">
+  <div class="signup_login">
     <form action='/users/new' method='get'>
         <input type="submit" value="Sign Up"/>
     </form>
@@ -30,8 +30,8 @@
 </form>
 
 <form action='/listings/filter' method="post">
-  <input type="date" name="filter_from">
-  <input type="date" name="filter_to">
+  <input type="date" name="filter_from" required>
+  <input type="date" name="filter_to" required>
   <input type="submit" value="Filter">
 </form>
 
@@ -41,6 +41,10 @@
     <a href="#" class="close">&times;</a>
   </div>
 <% end %>
+
+<div class="welcome">
+  <h1>All Listings</h1>
+</div>
 
 <% @listings.each do |listing| %>
   <a href="/listings/<%= listing.id %>">
