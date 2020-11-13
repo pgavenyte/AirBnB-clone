@@ -5,7 +5,7 @@ describe Booking do
   before(:each) do
     @user = User.add("example@email", "password")
     @listing = Listings.add(people_id: @user.id, name: 'Makers Space', description: 'A beautiful space', price: '30', available_from:'2020-11-15', available_to: '2020-12-10', location: 'London')
-    @booking = Booking.add(@user.id, @listing.id)
+    @booking = Booking.add(@user.id, @listing.id, '2020-11-20', '2020-11-23')
   end
   describe ".all" do
     it "displays all the bookings within databse" do
@@ -13,6 +13,8 @@ describe Booking do
       expect(Booking.all[0].id).to eq @booking.id
       expect(Booking.all[0].people_id).to eq @booking.people_id
       expect(Booking.all[0].listing_id).to eq @booking.listing_id
+      expect(Booking.all[0].check_in).to eq @booking.check_in
+      expect(Booking.all[0].check_out).to eq @booking.check_out
     end
   end
   describe "#add" do
@@ -31,6 +33,8 @@ describe Booking do
       expect(Booking.find(@user.id)[0].id).to eq(@booking.id)
       expect(Booking.find(@user.id)[0].people_id).to eq(@booking.people_id)
       expect(Booking.find(@user.id)[0].listing_id).to eq(@booking.listing_id)
+      expect(Booking.find(@user.id)[0].check_in).to eq('2020-11-20')
+      expect(Booking.find(@user.id)[0].check_out).to eq('2020-11-23')
     end
   end
 end

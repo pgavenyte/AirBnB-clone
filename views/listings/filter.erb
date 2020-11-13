@@ -1,3 +1,11 @@
+<link rel="stylesheet" href="/css/cssfile.css">
+
+<div class="logo">
+  <a href='/'>
+    <img src="/img/logo.png">
+  </a>
+</div>
+
 <% if @logged_in %>
   <div style="float: right;">
     <form action='/sessions' method="post">
@@ -27,8 +35,21 @@
 </form>
 
 <% @filter_listings.each do |listing| %>
-  <ul>
-    <li> <%= listing.name %>, <%= listing.description %>, <%= listing.price %>, <%= listing.available_from %>, <%= listing.available_to %>, <%= listing.location %> </li>
-
-  </ul>
+<a href="<%= listing.id %>">
+  <section class="space">
+    <div class="image">
+      <img src="/img/apartment.jpg">
+    </div>
+    <div class="listing_details">
+      <h1><%= listing.name %></h1>
+      <h2><%= listing.description %></h2>
+    </div>
+    <div class="listing_price">
+      <h3>Price per night: £<%= listing.price %></h3>
+    </div>
+    <div class='listing_details_small'>
+      <h5><%= listing.location %></h5>
+      <h4>Available from <%= listing.available_from %> to <%= listing.available_to %></h4>
+    </div>
+  </section></a>
 <% end %>
