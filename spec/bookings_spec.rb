@@ -37,4 +37,17 @@ describe Booking do
       expect(Booking.find(@user.id)[0].check_out).to eq('2020-11-23')
     end
   end
+  describe "#requests_find" do
+    it "returns empty array if people_id doesn't exist, i.e. no request for that user" do
+      @user1 = User.add("example@email1", "password1")
+      expect(Booking.requests_find(@user1.id)).to be_empty
+    end
+    it "returns array of user's requests" do
+      expect(Booking.requests_find(@user.id)[0].id).to eq(@booking.listing_id)
+      expect(Booking.requests_find(@user.id)[0].people_id).to eq(@booking.people_id)
+      expect(Booking.requests_find(@user.id)[0].listing_id).to eq(@booking.listing_id)
+      expect(Booking.requests_find(@user.id)[0].check_in).to eq('2020-11-20')
+      expect(Booking.requests_find(@user.id)[0].check_out).to eq('2020-11-23')
+    end
+  end
 end
