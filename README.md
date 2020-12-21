@@ -1,4 +1,18 @@
-# Makers_AirBnB_team5
+## Makers AirBnB clone challenge
+
+Bootcamp group project to develop an AirBnB clone in 5 days. Developed using Test-Driven Development startegy.
+
+## Stack
+
+- `Ruby` language
+- `RSpec` testing framework
+- `html` and `css` for styling
+- `postgres` for database
+
+## Database Schema
+
+<img src="public/img/db_schema.png" width="700" height="500">
+
 ## User Stories
 ```
 As a new user
@@ -35,3 +49,12 @@ As a existing user
 So that I can receive bookings
 I'd like to be able to add a new listing
 ```
+
+## Try it!
+
+Want to see & try our app? Here's how:
+- Clone this repo using `git clone`
+- `cd` into the project folder
+- Open Terminal and run `rake setup`
+- Run `rackup`
+- Visit `localhost:9292`
